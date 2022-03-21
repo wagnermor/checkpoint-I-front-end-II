@@ -48,9 +48,8 @@ header {
 }
 
 .btn-save {
- justify-content: end;
  background-color: #40E050;
- width: 297px;
+ width: 200px;
  font-size: 24px;
  color: #FFF;
  border-radius: 12px;
@@ -95,4 +94,16 @@ header {
 h1 {
   font-family: 'Palette Mosaic', cursive;
   
+}
+
+@media (max-width: 500px) {
+  .header-button {
+    align-items: center;
+  }
+}
+
+@media (max-width: 375px) {
+    .header-inputs {
+      grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
+  }
 }
