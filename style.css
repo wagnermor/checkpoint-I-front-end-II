@@ -30,6 +30,11 @@ header {
   align-items: flex-end;
 }
 
+.btn-save:hover {
+  cursor: pointer;
+  font-weight: bold;
+}
+
 .header-inputs {
   margin: 35px 0 76px 0 ;
   display: grid;
