@@ -18,6 +18,12 @@ header {
   max-width: 1200px;
 }
 
+h1, h2 {
+  font-family: 'Palette Mosaic', cursive;
+  font-size: 32px;
+
+}
+
 .header {
   padding: 32px;
   background-color: #202020;
@@ -90,15 +96,18 @@ header {
   border-radius: 12px;
 }
 
+.title {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-left: 48px;
+}
+
 .caption {
   padding: 31px;
 }
-.caption h2 {
+.caption h3 {
   padding-bottom: 11px;
-}
-h1 {
-  font-family: 'Palette Mosaic', cursive;
-  
+  font-size: 24px;
 }
 
 @media (max-width: 500px) {

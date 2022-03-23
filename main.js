@@ -29,11 +29,13 @@ getBtnSave.addEventListener('click', (event) => {
 
 function readData() {
   for(let card of cards) {
+    let value = parseFloat(card.valor).toLocaleString("pt-BR", {style:"currency", currency:"BRL"});
     main.innerHTML += `
     <article class="card">
       <img src=${card.urlImagem} alt="#" class="photo">
       <div class="caption">
-        <h2>${card.destino} <span class="value">R$ ${card.valor}</span></h2>
+        
+        <h3>${card.destino} <span class="value">${value}</span></h3>
         <p>${card.descricao}</p>
       </div>
     </article>`
@@ -41,7 +43,7 @@ function readData() {
 }
 
 function createCard() {
-  cards.push({
+  cards.unshift({
     destino: `${getCardTitle.value}`,
     valor: `${getCardValue.value}`,
     descricao: `${getCardDescription.value}`,
@@ -50,16 +52,5 @@ function createCard() {
 
   main.innerHTML = "";
   readData();
-  // img.src="https://cdn.pixabay.com/photo/2014/06/03/19/38/road-sign-361513_640.jpg";
-  // h2.innerText="Osasco";
-  // span.innerText=" R$ 1,99";
-  // p.innerText="Hot dog city";
-  
-  // main.appendChild(article);
-  // article.appendChild(img);
-  // article.appendChild(div);
-  // div.appendChild(h2);
-  // h2.appendChild(span);
-  // div.appendChild(p);
 }
 readData();
