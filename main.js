@@ -20,6 +20,8 @@ const h2 = document.createElement("h2");
 const span = document.createElement("span");
 const p = document.createElement("p");
 
+const fields = document.querySelectorAll("[required]");
+
 article.classList.add("card");
 img.classList.add("photo");
 div.classList.add("caption");
@@ -29,6 +31,7 @@ p.classList.add("p");
 
 getBtnSave.addEventListener('click', createCard);
 
+
 function sendJson(data) {
   return JSON.stringify(data);
 }
@@ -37,9 +40,22 @@ function getJson(data) {
   return JSON.parse(data);
 }
 
+function validation(event) {
+  for(let field of fields) {
+    if(field.checkValidity() === false) {
+      event.preventDefault();
+      field.reportValidity();
+    }
+  }
+}
+
+
 if(localStorage.getItem("cards") === null) localStorage.setItem("cards", sendJson(cards));
 
+
+
 function addData() {
+  validation();
   let getCards = getJson(localStorage.cards);
   getCards.unshift({
     destino: `${getCardTitle.value}`,
