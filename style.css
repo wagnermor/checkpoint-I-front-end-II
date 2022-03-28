@@ -47,6 +47,8 @@ h1, h2 {
 .btn:hover {
   cursor: pointer;
   font-weight: bold;
+  background-color: rgba(64, 224, 80, .8);
+  transition: 1s;
 }
 
 .header-inputs {
