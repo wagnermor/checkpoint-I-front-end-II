@@ -1,4 +1,4 @@
-const cards = [
+let cards = [
   {
     destino: 'Santiago',
     valor: '2156',

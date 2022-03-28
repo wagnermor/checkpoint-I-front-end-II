@@ -1,5 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Palette+Mosaic&display=swap');
 
+:root {
+  --bg-color: #000;
+  --box-color: #202020;
+  --input-bg-color: #262626;
+  --text-color: #FFFFFF;
+  --title-color: #40E050;
+  --button-color: #40E050;
+}
 * {
   margin: 0;
   padding: 0;
@@ -7,8 +15,8 @@
 }
 
 body {
-  background-color: #000;
-  color: #FFFFFF;
+  background-color: var(--bg-color);
+  color: var(--text-color);
   font-family: sans-serif;
 }
 
@@ -26,17 +34,17 @@ h1, h2 {
 
 .header {
   padding: 32px;
-  background-color: #202020;
+  background-color: var(--box-color);
   border-radius: 12px;
 }
 
 .header-button {
   display: flex;
-  flex-direction: column;
-  align-items: flex-end;
+  justify-content: flex-end;
+  gap: 12px;
 }
 
-.btn-save:hover {
+.btn:hover {
   cursor: pointer;
   font-weight: bold;
 }
@@ -50,7 +58,8 @@ h1, h2 {
 }
 
 .header-inputs input {
-  background-color: #262626;
+  background-color: var(--input-bg-color);
+  color: var(--text-color);
   height: 52px;
   font-size: 18px;
   border-radius: 12px;
@@ -58,11 +67,11 @@ h1, h2 {
   padding: 16px;
 }
 
-.btn-save {
+.btn {
  background-color: #40E050;
  width: 200px;
  font-size: 24px;
- color: #FFF;
+ color: var(--text-color);
  border-radius: 12px;
  border: none;
  padding: 13px 0;
@@ -108,6 +117,9 @@ h1, h2 {
 .caption h3 {
   padding-bottom: 11px;
   font-size: 24px;
+}
+.caption p {
+  text-align: justify;
 }
 
 @media (max-width: 500px) {

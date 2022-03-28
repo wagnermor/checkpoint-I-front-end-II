@@ -1,5 +1,10 @@
 import cards from './data.js';
 
+document.querySelector("form")
+.addEventListener("submit", (event) => {
+  event.preventDefault();
+})
+
 const getCardTitle = document.getElementById("card-title");
 const getCardValue = document.getElementById("card-value");
 const getCardDescription = document.getElementById("card-description");
@@ -22,13 +27,32 @@ h2.classList.add("h2");
 span.classList.add("value");
 p.classList.add("p");
 
-getBtnSave.addEventListener('click', (event) => {
-  event.preventDefault();
-  createCard();
-})
+getBtnSave.addEventListener('click', createCard);
+
+function sendJson(data) {
+  return JSON.stringify(data);
+}
+
+function getJson(data) {
+  return JSON.parse(data);
+}
+
+if(localStorage.getItem("cards") === null) localStorage.setItem("cards", sendJson(cards));
+
+function addData() {
+  let getCards = getJson(localStorage.cards);
+  getCards.unshift({
+    destino: `${getCardTitle.value}`,
+    valor: `${getCardValue.value}`,
+    descricao: `${getCardDescription.value}`,
+    urlImagem: `${getCardUrlImage.value}`
+  });
+  localStorage.cards = sendJson(getCards);
+}
 
 function readData() {
-  for(let card of cards) {
+  let localCards = getJson(localStorage.cards);
+  for(let card of localCards) {
     let value = parseFloat(card.valor).toLocaleString("pt-BR", {style:"currency", currency:"BRL"});
     main.innerHTML += `
     <article class="card">
@@ -43,14 +67,12 @@ function readData() {
 }
 
 function createCard() {
-  cards.unshift({
-    destino: `${getCardTitle.value}`,
-    valor: `${getCardValue.value}`,
-    descricao: `${getCardDescription.value}`,
-    urlImagem: `${getCardUrlImage.value}`
-  });
-
+  addData();
+  
   main.innerHTML = "";
+  
   readData();
+  
 }
+
 readData();
