@@ -67,6 +67,15 @@ h1, h2 {
   padding: 16px;
 }
 
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
 .btn {
  background-color: #40E050;
  width: 200px;
