@@ -72,7 +72,6 @@ function createCard() {
   main.innerHTML = "";
   
   readData();
-  
 }
 
 readData();
