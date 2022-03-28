@@ -44,7 +44,7 @@ function validation(event) {
   for(let field of fields) {
     if(field.checkValidity() === false) {
       event.preventDefault();
-      field.reportValidity();
+      // field.reportValidity();
     }
   }
 }
@@ -72,7 +72,7 @@ function readData() {
     let value = parseFloat(card.valor).toLocaleString("pt-BR", {style:"currency", currency:"BRL"});
     main.innerHTML += `
     <article class="card">
-      <img src=${card.urlImagem} alt="#" class="photo">
+      <img src=${card.urlImagem} onerror="this.src='./img/image-error1.png'" alt="#" class="photo">
       <div class="caption">
         
         <h3>${card.destino} <span class="value">${value}</span></h3>
